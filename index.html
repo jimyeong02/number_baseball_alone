@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUMBER BASEBALL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">DIGITAL STADIUM</div>
+        <h1>NUMBER <span>BASEBALL</span></h1>
+      </div>
+      <div class="top-actions">
+        <button id="soundBtn" class="icon-btn" aria-label="사운드">🔊</button>
+        <button id="newGameBtn" class="outline-btn">NEW GAME</button>
+      </div>
+    </header>
+
+    <main class="game-layout">
+      <section class="hero-card">
+        <div class="stadium-glow"></div>
+        <div class="score-row">
+          <div>
+            <span class="label">INNING</span>
+            <strong id="inning">01</strong>
+          </div>
+          <div class="status-pill" id="gameStatus">PLAY BALL</div>
+          <div class="attempt-box">
+            <span class="label">ATTEMPTS</span>
+            <strong><span id="attempts">0</span><small>/ 10</small></strong>
+          </div>
+        </div>
+
+        <div class="pitch-zone">
+          <div class="pitcher">
+            <div class="pitcher-label">PITCHER</div>
+            <div class="pitcher-mark">P</div>
+          </div>
+
+          <div class="secret-display">
+            <div class="label">SECRET NUMBER</div>
+            <div id="secretDots" class="secret-dots">
+              <span>?</span><span>?</span><span>?</span><span>?</span>
+            </div>
+            <div class="sub">4 DIGIT • NO DUPLICATES</div>
+          </div>
+
+          <div class="batter">
+            <div class="batter-label">BATTER</div>
+            <div class="batter-mark">B</div>
+          </div>
+
+          <div id="ball" class="ball">⚾</div>
+        </div>
+
+        <div id="resultBanner" class="result-banner">
+          <span class="result-icon">⚾</span>
+          <span id="resultText">4자리 숫자를 입력하세요</span>
+        </div>
+      </section>
+
+      <section class="play-card">
+        <div class="input-title">
+          <div>
+            <span class="label">YOUR GUESS</span>
+            <h2 id="guessDisplay">----</h2>
+          </div>
+          <button id="clearBtn" class="small-btn">CLEAR</button>
+        </div>
+
+        <div id="keypad" class="keypad">
+          <button data-num="1">1</button><button data-num="2">2</button><button data-num="3">3</button>
+          <button data-num="4">4</button><button data-num="5">5</button><button data-num="6">6</button>
+          <button data-num="7">7</button><button data-num="8">8</button><button data-num="9">9</button>
+          <button data-num="0" class="zero">0</button>
+          <button id="backspaceBtn" class="control">⌫</button>
+        </div>
+
+        <button id="judgeBtn" class="judge-btn">
+          <span>⚾</span> 판정하기
+        </button>
+        <p class="hint">키보드 숫자키로도 입력할 수 있습니다.</p>
+      </section>
+
+      <aside class="history-card">
+        <div class="card-heading">
+          <div>
+            <span class="label">GAME LOG</span>
+            <h2>경기 기록</h2>
+          </div>
+          <span id="remaining" class="remaining">10 CHANCES</span>
+        </div>
+        <div id="history" class="history"></div>
+        <div id="emptyHistory" class="empty-history">
+          <div>⚾</div>
+          <p>첫 번째 공을 던져보세요.</p>
+        </div>
+      </aside>
+
+      <section class="stats-card">
+        <div class="stat">
+          <span>BEST</span><strong id="best">—</strong><small>회</small>
+        </div>
+        <div class="stat">
+          <span>WINS</span><strong id="wins">0</strong><small>회</small>
+        </div>
+        <div class="stat">
+          <span>WIN RATE</span><strong id="winRate">0</strong><small>%</small>
+        </div>
+        <div class="stat">
+          <span>MODE</span><strong>4D</strong><small>NO DUP</small>
+        </div>
+      </section>
+    </main>
+
+    <footer>NUMBER BASEBALL · DIGITAL STADIUM</footer>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-panel">
+      <div id="modalIcon" class="modal-icon">🏆</div>
+      <span class="label" id="modalKicker">GAME OVER</span>
+      <h2 id="modalTitle">WIN!</h2>
+      <p id="modalMessage"></p>
+      <div class="modal-secret" id="modalSecret">----</div>
+      <button id="modalNewGame" class="judge-btn">다시 플레이</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

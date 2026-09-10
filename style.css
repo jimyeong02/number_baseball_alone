@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#070a10;
+  --panel:#10151e;
+  --panel2:#151c27;
+  --line:rgba(255,255,255,.09);
+  --text:#f4f7fb;
+  --muted:#8993a4;
+  --accent:#ff5b38;
+  --accent2:#ff9d52;
+  --green:#52e19b;
+  --blue:#62a8ff;
+  --shadow:0 24px 70px rgba(0,0,0,.38);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; color:var(--text);
+  font-family:Inter,system-ui,sans-serif;
+  background:
+    radial-gradient(circle at 50% -20%,rgba(255,91,56,.12),transparent 35%),
+    radial-gradient(circle at 10% 80%,rgba(98,168,255,.08),transparent 28%),
+    var(--bg);
+}
+button{font:inherit;color:inherit;cursor:pointer}
+.app{width:min(1240px,calc(100% - 32px));margin:0 auto;padding:30px 0 22px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.eyebrow,.label{font-size:10px;letter-spacing:.18em;color:var(--muted);font-weight:800}
+h1{font-family:"Black Ops One",Impact,sans-serif;font-size:34px;letter-spacing:.04em;margin:5px 0 0}
+h1 span{color:var(--accent)}
+.top-actions{display:flex;gap:9px}
+.icon-btn,.outline-btn,.small-btn{
+  border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:11px;
+  height:40px;padding:0 14px;font-weight:700;font-size:12px
+}
+.icon-btn{width:42px;padding:0}
+.outline-btn:hover,.small-btn:hover,.icon-btn:hover{background:rgba(255,255,255,.08)}
+.game-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,.9fr);gap:16px}
+.hero-card,.play-card,.history-card,.stats-card{
+  border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+  border-radius:22px;box-shadow:var(--shadow);overflow:hidden
+}
+.hero-card{grid-column:1 / -1;position:relative;padding:25px 28px 22px;min-height:355px}
+.stadium-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 95%,rgba(255,91,56,.11),transparent 48%);pointer-events:none}
+.score-row{position:relative;display:flex;align-items:center;justify-content:space-between}
+.score-row strong{display:block;font-size:22px;margin-top:4px}
+.status-pill{border:1px solid rgba(82,225,155,.28);background:rgba(82,225,155,.08);color:var(--green);padding:7px 12px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.12em}
+.attempt-box{text-align:right}
+.attempt-box small{font-size:10px;color:var(--muted);font-weight:600}
+.pitch-zone{position:relative;height:210px;display:flex;align-items:center;justify-content:center;gap:clamp(35px,9vw,130px)}
+.pitch-zone:before{content:"";position:absolute;left:12%;right:12%;bottom:20px;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+.pitcher,.batter{text-align:center;z-index:1}
+.pitcher-label,.batter-label{font-size:8px;color:var(--muted);letter-spacing:.18em;margin-bottom:7px}
+.pitcher-mark,.batter-mark{
+  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--line);background:rgba(255,255,255,.04);font-family:"Black Ops One";font-size:22px
+}
+.secret-display{text-align:center;z-index:1}
+.secret-display .label{display:block;margin-bottom:13px}
+.secret-dots{display:flex;gap:9px;justify-content:center}
+.secret-dots span{
+  width:42px;height:54px;display:grid;place-items:center;border:1px solid var(--line);
+  border-radius:10px;background:rgba(0,0,0,.25);font-family:"Black Ops One";font-size:25px;color:#697385
+}
+.secret-display .sub{font-size:8px;color:#687385;letter-spacing:.15em;margin-top:10px}
+.ball{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:26px;opacity:.14;filter:grayscale(1)}
+.ball.pitch{animation:pitch .62s cubic-bezier(.2,.8,.25,1)}
+@keyframes pitch{0%{left:35%;opacity:0;transform:translate(-50%,-50%) rotate(0)}30%{opacity:1}100%{left:65%;opacity:.15;transform:translate(-50%,-50%) rotate(360deg)}}
+.result-banner{
+  position:relative;margin:0 auto;width:min(540px,100%);border:1px solid var(--line);background:rgba(0,0,0,.18);
+  border-radius:13px;padding:12px 16px;text-align:center;color:#c6ced9;font-size:12px
+}
+.result-banner.flash{animation:flash .4s ease}
+@keyframes flash{50%{transform:scale(1.025);border-color:rgba(255,91,56,.5)}}
+.play-card{padding:23px}
+.input-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}
+.input-title h2{font-family:"Black Ops One";font-size:29px;letter-spacing:.15em;margin:6px 0 0}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.keypad button{
+  height:57px;border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:12px;
+  font-size:18px;font-weight:800;transition:.14s
+}
+.keypad button:hover{transform:translateY(-2px);background:rgba(255,255,255,.08)}
+.keypad button:active{transform:translateY(0) scale(.97)}
+.keypad .zero{grid-column:2}
+.keypad .control{font-size:20px;color:var(--muted)}
+.judge-btn{
+  width:100%;height:53px;margin-top:13px;border:0;border-radius:13px;
+  background:linear-gradient(135deg,var(--accent),#e83f27);font-weight:800;letter-spacing:.04em;
+  box-shadow:0 10px 28px rgba(255,91,56,.18);transition:.15s
+}
+.judge-btn:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.judge-btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.hint{text-align:center;color:#687385;font-size:9px;margin:10px 0 0}
+.history-card{padding:23px;min-height:425px}
+.card-heading{display:flex;align-items:flex-start;justify-content:space-between}
+.card-heading h2{margin:5px 0 0;font-size:20px}
+.remaining{font-size:9px;color:var(--muted);border:1px solid var(--line);padding:6px 8px;border-radius:7px}
+.history{margin-top:17px;display:flex;flex-direction:column;gap:8px;max-height:340px;overflow:auto;padding-right:3px}
+.history-row{
+  display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:10px;
+  padding:10px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.045)
+}
+.history-row .num{font-size:9px;color:#667082}
+.history-row .guess{font-family:"Black Ops One";letter-spacing:.18em;font-size:16px}
+.badges{display:flex;gap:4px}
+.badge{font-size:8px;font-weight:800;padding:5px 6px;border-radius:6px}
+.badge.s{color:var(--accent);background:rgba(255,91,56,.1)}
+.badge.b{color:var(--accent2);background:rgba(255,157,82,.1)}
+.badge.o{color:#9ba4b3;background:rgba(155,164,179,.09)}
+.empty-history{text-align:center;color:#687385;padding:70px 10px 20px;font-size:11px}
+.empty-history div{font-size:30px;opacity:.22;margin-bottom:10px}
+.empty-history p{margin:0}
+.stats-card{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,1fr);padding:18px}
+.stat{padding:4px 20px;border-right:1px solid var(--line);text-align:center}
+.stat:last-child{border:0}
+.stat span{display:block;color:var(--muted);font-size:8px;letter-spacing:.15em;font-weight:800}
+.stat strong{font-family:"Black Ops One";font-size:22px;margin:5px 4px 0}
+.stat small{color:#687385;font-size:8px}
+footer{text-align:center;color:#414957;font-size:8px;letter-spacing:.2em;margin-top:20px}
+.modal{position:fixed;inset:0;background:rgba(2,4,8,.78);backdrop-filter:blur(8px);display:grid;place-items:center;padding:20px;z-index:10}
+.modal.hidden{display:none}
+.modal-panel{width:min(390px,100%);background:#111720;border:1px solid var(--line);border-radius:22px;padding:35px 28px;text-align:center;box-shadow:0 30px 100px rgba(0,0,0,.55)}
+.modal-icon{font-size:44px;margin-bottom:12px}
+.modal-panel h2{font-family:"Black Ops One";font-size:38px;margin:7px 0}
+.modal-panel p{color:#8c96a6;font-size:12px;line-height:1.7;margin:0 auto 17px}
+.modal-secret{font-family:"Black Ops One";letter-spacing:.2em;font-size:31px;margin-bottom:18px}
+@media(max-width:800px){
+  .game-layout{grid-template-columns:1fr}
+  .hero-card,.stats-card{grid-column:auto}
+  .history-card{min-height:unset}
+}
+@media(max-width:520px){
+  .app{width:min(100% - 18px,1240px);padding-top:18px}
+  h1{font-size:25px}
+  .top-actions .outline-btn{display:none}
+  .hero-card{padding:19px 15px}
+  .pitch-zone{gap:22px;height:190px}
+  .pitcher,.batter{display:none}
+  .secret-dots span{width:39px;height:50px}
+  .stats-card{grid-template-columns:repeat(2,1fr);gap:14px}
+  .stat{border-right:0}
+}
